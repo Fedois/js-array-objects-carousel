@@ -88,3 +88,20 @@ h1{
     color: white;
     cursor: pointer;
 }
+.thumbnails{
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.line{
+    display: inline-block;
+    width: 25px;
+    height: 5px;
+    background-color: gray;
+    border-radius: 10px;
+    margin: 0 5px;
+}
+.white{
+    background-color: white;
+}
