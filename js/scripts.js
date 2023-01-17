@@ -23,8 +23,6 @@ const images = [
     }
 ];
 
-// const boxSlidesOne = document.querySelector('.slides-one');
-
 for(let i = 0; i < images.length; i++){
 
     const boxSlidesOne = document.querySelector('.box-slides-one');
@@ -46,9 +44,12 @@ for(let i = 0; i < images.length; i++){
 currentSlide = 0
 const slideOne = document.querySelectorAll('.slide-one')
 const slideTwo = document.querySelectorAll ('.slide-two')
+const thumb = document.querySelectorAll('.line')
 
 slideOne[currentSlide].classList.add('display');
 slideTwo[currentSlide].classList.add('current')
+thumb[currentSlide].classList.add('white')
+
 
 const next = document.querySelector('.next');
 const back = document.querySelector('.back');
@@ -58,19 +59,20 @@ next.addEventListener('click',
         
         slideOne[currentSlide].classList.remove('display');
         slideTwo[currentSlide].classList.remove('current');
+        thumb[currentSlide].classList.remove('white')
         
         if(currentSlide == images.length - 1){
             currentSlide = 0
             slideOne[currentSlide].classList.add('display');
             slideTwo[currentSlide].classList.add('current');
-
-
+            thumb[currentSlide].classList.add('white')
         }
-        
         else{
             currentSlide++
             slideOne[currentSlide].classList.add ('display');
             slideTwo[currentSlide].classList.add ('current');
+            thumb[currentSlide].classList.add('white')
+
         }
 
 }
