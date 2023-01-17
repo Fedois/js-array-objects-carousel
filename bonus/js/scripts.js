@@ -83,11 +83,13 @@ back.addEventListener('click',
         
         slideOne[currentSlide].classList.remove('display');
         slideTwo[currentSlide].classList.remove('current');
+        thumb[currentSlide].classList.remove('white')
         
         if(currentSlide == 0){
             currentSlide = images.length - 1
             slideOne[currentSlide].classList.add('display');
             slideTwo[currentSlide].classList.add('current');
+            thumb[currentSlide].classList.add('white')
 
 
         }
@@ -96,12 +98,13 @@ back.addEventListener('click',
             currentSlide--
             slideOne[currentSlide].classList.add ('display');
             slideTwo[currentSlide].classList.add ('current');
+            thumb[currentSlide].classList.add('white')
         }
 
 }
 )
 
-setInterval(() => {
+const clock = setInterval(() => {
         slideOne[currentSlide].classList.remove('display');
         slideTwo[currentSlide].classList.remove('current');
         thumb[currentSlide].classList.remove('white')
@@ -119,5 +122,4 @@ setInterval(() => {
             thumb[currentSlide].classList.add('white')
 
         }
-}, 3000);
-
+}, 1000);

@@ -105,3 +105,13 @@ h1{
 .white{
     background-color: white;
 }
+.buttons{
+    text-align: center;
+}
+.buttons > button{
+    padding: 0 10px;
+    margin: 10px;
+    background-color: blue;
+    color: white;
+    border: none;
+}
