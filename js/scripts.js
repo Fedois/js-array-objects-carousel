@@ -23,19 +23,32 @@ const images = [
     }
 ];
 
-const boxSlidesOne = document.querySelector('.slides-one');
+// const boxSlidesOne = document.querySelector('.slides-one');
 
 for(let i = 0; i < images.length; i++){
 
-    console.log(images[i].image)
-    boxSlidesOne.innerHTML += `<div class="slide">
-                            <img src="${images[i].image}">
-                         </div>`;
+    const boxSlidesOne = document.querySelector('.box-slides-one');
+    const boxSlidesTwo = document.querySelector('.box-slides-two');
+
+    boxSlidesOne.innerHTML += `<div class="slide-one">
+                                <img src="${images[i].image}">
+                                <div class="info">
+                                    <h1 class="title">${images[i].title}</h1>
+                                    <p class="text">${images[i].text}</p>
+                                </div>
+                                </div>`;
+    
+    boxSlidesTwo.innerHTML += `<div class="slide-two">
+                                <img src="${images[i].image}">
+                            </div>`;
 }
 
 currentSlide = 0
-const slideOne = document.querySelectorAll('.slide')
-slideOne[currentSlide].style.display = 'block'
+const slideOne = document.querySelectorAll('.slide-one')
+const slideTwo = document.querySelectorAll ('.slide-two')
+
+slideOne[currentSlide].classList.add('display');
+slideTwo[currentSlide].classList.add('current')
 
 const next = document.querySelector('.next');
 const back = document.querySelector('.back');
@@ -43,30 +56,46 @@ const back = document.querySelector('.back');
 next.addEventListener('click',
     function() {
         
-        slideOne[currentSlide].style.display = 'none';
-        currentSlide++ 
-        slideOne[currentSlide].style.display = 'block';
+        slideOne[currentSlide].classList.remove('display');
+        slideTwo[currentSlide].classList.remove('current');
         
+        if(currentSlide == images.length - 1){
+            currentSlide = 0
+            slideOne[currentSlide].classList.add('display');
+            slideTwo[currentSlide].classList.add('current');
 
-        back.style.display = 'block'
 
-       
+        }
         
+        else{
+            currentSlide++
+            slideOne[currentSlide].classList.add ('display');
+            slideTwo[currentSlide].classList.add ('current');
+        }
+
 }
 )
 
 back.addEventListener('click',
     function() {
         
-        slideOne[currentSlide].style.display = 'none';
-        currentSlide-- 
-        slideOne[currentSlide].style.display = 'block';
+        slideOne[currentSlide].classList.remove('display');
+        slideTwo[currentSlide].classList.remove('current');
         
+        if(currentSlide == 0){
+            currentSlide = images.length - 1
+            slideOne[currentSlide].classList.add('display');
+            slideTwo[currentSlide].classList.add('current');
 
-        next.style.display = 'block'
 
+        }
         
-        
+        else{
+            currentSlide--
+            slideOne[currentSlide].classList.add ('display');
+            slideTwo[currentSlide].classList.add ('current');
+        }
+
 }
 )
 
